@@ -1,0 +1,86 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.wishbunny.wishbunny">
+
+    <!--  권한 관련  -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:label="위시버니"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 카카오 로그인 커스텀 URL 스킴 설정 -->
+        <activity
+            android:name="com.kakao.sdk.flutter.AuthCodeCustomTabsActivity"
+            android:exported="true">
+            <intent-filter android:label="flutter_web_auth">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="oauth"
+                    android:scheme="kakaoae432b6640162c59d720dd2f60bff8f4" />
+            </intent-filter>
+        </activity>
+
+        <!-- 페이스북 로그인 커스텀 URL 스킴 설정 -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1466549690667701"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="2e6d7ba162dc4d6af85b7f6474ffab7a"/>
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="위시버니" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="fb1466549690667701" />
+            </intent-filter>
+        </activity>
+
+        <!-- 네이버 로그인 커스텀 URL 스킴 설정 -->
+        <meta-data
+            android:name="com.naver.sdk.clientId"
+            android:value="tOUlum9p1JG59bj_3vfe" />
+        <meta-data
+            android:name="com.naver.sdk.clientSecret"
+            android:value="Pkvg951Lb5" />
+        <meta-data
+            android:name="com.naver.sdk.clientName"
+            android:value="위시버니" />
+
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>

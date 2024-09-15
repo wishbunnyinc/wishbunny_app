@@ -1,0 +1,65 @@
+name: wishbunny
+description: "wishbunny project"
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+# 패키지 관리 --------------------
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI 관련
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^1.0.1
+  velocity_x: ^4.1.1
+
+  # 상태관리 패키지
+  provider: ^6.0.5
+
+  # 데이터 직렬화 (g.dart 생성)
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
+
+  # 소셜로그인
+  kakao_flutter_sdk: ^1.4.3
+  flutter_naver_login: ^1.8.0
+  flutter_facebook_auth: ^4.2.0
+  sign_in_with_apple: ^4.3.0
+
+  # 웹뷰
+  url_launcher: ^6.1.11
+
+  # 이미지피커
+  image_picker: ^1.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  build_runner: ^2.4.6
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/tabView/
+    - assets/logo/
+    - assets/login/
+    - assets/common/
+
+  fonts:
+    - family: bold
+      fonts:
+        - asset: fonts/GmarketSansTTFBold.ttf
+    - family: light
+      fonts:
+        - asset: fonts/GmarketSansTTFLight.ttf
+    - family: medium
+      fonts:
+        - asset: fonts/GmarketSansTTFMedium.ttf
