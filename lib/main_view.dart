@@ -6,10 +6,12 @@ import 'package:wishbunny/view/login/join_profile_view.dart';
 import 'package:wishbunny/view/login/login_view.dart';
 import 'package:wishbunny/view/splash/splash_view.dart';
 import 'package:wishbunny/view/tab/tab_view.dart';
+import 'package:wishbunny/viewmodel/addWish/add_wish_viewmodel.dart';
 import 'package:wishbunny/viewmodel/home/home_viewmodel.dart';
 import 'package:wishbunny/viewmodel/login/join_viewmodel.dart';
 import 'package:wishbunny/viewmodel/login/login_viewmodel.dart';
 import 'package:wishbunny/viewmodel/login/mail_login_viewmodel.dart';
+import 'package:wishbunny/viewmodel/myPage/mypage_viewmodel.dart';
 
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
@@ -33,8 +35,14 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => MailLoginViewModel()),
         ChangeNotifierProvider(create: (context) => JoinViewModel()),
 
+        /// Common
+        ChangeNotifierProvider(create: (context) => AddWishViewModel()),
+
         /// Home
         ChangeNotifierProvider(create: (context) => HomeViewModel()),
+
+        /// MyPage
+        ChangeNotifierProvider(create: (context) => MyPageViewModel()),
       ],
       child: Stack(
         alignment: Alignment.center,

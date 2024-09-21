@@ -17,7 +17,7 @@ class SplashViewState extends State<SplashView> {
     Future.delayed(const Duration(seconds: 0), () {
 
       //TODO: 추후 isLogin으로 변경
-      if (false) {
+      if (true) {
         moveNavigator(context, NavigatorMoveType.Push, '/tabView');
       } else {
         moveNavigator(context, NavigatorMoveType.Push, '/loginView');

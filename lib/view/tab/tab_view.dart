@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:wishbunny/view/tab/widgets/bottom_navigation_bar_item.dart';
 
-import '../addWish/add_wish_view.dart';
+import '../addWish/add_wish_popup_view.dart';
 import '../home/home_view.dart';
 import '../myPage/my_page_view.dart';
 import '../search/search_view.dart';
@@ -26,7 +26,7 @@ class _TabViewState extends State<TabView> {
   final _navigatorKeys = {
     TabItem.home: GlobalKey<NavigatorState>(),
     TabItem.search: GlobalKey<NavigatorState>(),
-    TabItem.addWish: GlobalKey<NavigatorState>(),
+    // TabItem.addWish: GlobalKey<NavigatorState>(),
     TabItem.shopping: GlobalKey<NavigatorState>(),
     TabItem.myPage: GlobalKey<NavigatorState>(),
   };
@@ -41,9 +41,20 @@ class _TabViewState extends State<TabView> {
   /// Helper
 
   void _selectTab(TabItem tabItem) async {
-    setState(() {
-      currentTap = tabItem;
-    });
+    if (tabItem == TabItem.addWish) {
+      showModalBottomSheet<void>(
+        context: context,
+        useSafeArea: true,
+        isScrollControlled: true,
+        builder: (BuildContext context) {
+          return AddWishPopupView();
+        },
+      );
+    } else {
+      setState(() {
+        currentTap = tabItem;
+      });
+    }
   }
 
   /// Configure View
@@ -103,17 +114,7 @@ class _TabViewState extends State<TabView> {
         );
 
       case TabItem.addWish:
-        return Offstage(
-          offstage: currentTap != TabItem.addWish,
-          child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            navigatorKey: _navigatorKeys[tabItem],
-            initialRoute: '/addWishView',
-            routes: {
-              '/addWishView': (context) => AddWishView(),
-            },
-          ),
-        );
+        return Container();
 
       case TabItem.shopping:
         return Offstage(

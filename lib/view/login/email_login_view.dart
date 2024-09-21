@@ -33,6 +33,7 @@ class _MailLoginViewState extends State<MailLoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         body: Consumer<MailLoginViewModel>(builder: (context, provider, child) {
           return SafeArea(
             child: SingleChildScrollView(

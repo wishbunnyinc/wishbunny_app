@@ -31,6 +31,7 @@ class _JoinMailViewState extends State<JoinMailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         body: Consumer<JoinViewModel>(builder: (context, provider, child) {
             return SafeArea(
               child: SingleChildScrollView(

@@ -1,10 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 
 class HomeViewModel with ChangeNotifier {
-  List<HomeModel> homeData = [HomeModel(), HomeModel(), HomeModel(), HomeModel(), HomeModel()];
+  List<HomeModel> homeData = [HomeModel(), HomeModel(), HomeModel(), HomeModel(), HomeModel(), HomeModel(), HomeModel(), HomeModel(), HomeModel()];
 }
 
 class HomeModel {
-  var title = "title";
-  List<String> homeList = ["aaa", "bbb", "ccc"];
+  String nickname = ["Sunshine", "NightHawk", "SilverWolf", "CrimsonStar", "EchoWave", "BluePhoenix", "MistyRain", "GoldenFox", "ThunderBolt", "ScarletDream"][Random().nextInt(10)];
+  List<String> wishList = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 }
